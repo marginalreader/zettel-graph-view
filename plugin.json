@@ -1,0 +1,115 @@
+{
+  "noteplan.minAppVersion": "3.20.1",
+  "macOS.minVersion": "10.15.7",
+  "iOS.minVersion": "14",
+  "plugin.id": "ryan.graph-view",
+  "plugin.name": "🕸️ Graph View",
+  "plugin.description": "Obsidian-style graph view of your NotePlan vault, with note-backed saved views you can favorite in the sidebar.",
+  "plugin.author": "Ryan Malone",
+  "plugin.version": "0.2.0",
+  "plugin.script": "script.js",
+  "plugin.url": "",
+  "plugin.requiredFiles": ["d3.min.js", "webview-bundle.js", "webview-styles.css"],
+  "plugin.commands": [
+    {
+      "name": "graph view",
+      "alias": ["graph", "gv"],
+      "description": "Open the graph view panel",
+      "jsFunction": "openGraphView",
+      "sidebarView": {
+        "windowID": "graph-view",
+        "title": "Graph View",
+        "icon": "diagram-project",
+        "iconColor": "purple-500"
+      }
+    },
+    {
+      "name": "graph view: load view",
+      "alias": ["load view"],
+      "description": "Load a saved graph view (used by 'Load this view' callback links)",
+      "jsFunction": "loadSavedView",
+      "arguments": ["view filename"]
+    },
+    {
+      "name": "graph view: save view",
+      "alias": ["save view"],
+      "description": "Save the current graph view as a note",
+      "jsFunction": "saveCurrentView"
+    },
+    {
+      "name": "graph view: refresh",
+      "alias": ["regraph"],
+      "description": "Force a full rescan and redraw of the graph",
+      "jsFunction": "refreshGraph"
+    },
+    {
+      "name": "graphHTMLMessage",
+      "alias": [],
+      "description": "Internal: routes messages from the HTMLView panel to plugin handlers",
+      "jsFunction": "graphHTMLMessage"
+    }
+  ],
+  "plugin.settings": [
+    {
+      "type": "bool",
+      "key": "includeCalendarNotes",
+      "title": "Include Calendar Notes",
+      "description": "Show daily/weekly/monthly notes as graph nodes. Off by default — calendar notes can make the graph noisy.",
+      "default": false
+    },
+    {
+      "type": "[string]",
+      "key": "excludedFolders",
+      "title": "Excluded Folders",
+      "description": "Folders never scanned. Comma-separated, no leading slash.",
+      "default": ["@Templates", "@Archive", "@Trash", "@Plugins"]
+    },
+    {
+      "type": "string",
+      "key": "savedViewsFolder",
+      "title": "Saved Views Folder",
+      "description": "Folder where saved-view notes are stored.",
+      "default": "@Plugins/Zettel Graph/Views"
+    },
+    {
+      "type": "string",
+      "key": "outlineExportFolder",
+      "title": "Outline Export Folder",
+      "description": "Folder where 'Export outline' creates new notes from the locked anchor and its 1-hop neighbors.",
+      "default": "09 - QUICK ACCESS"
+    },
+{
+      "type": "number",
+      "key": "defaultLinkDistance",
+      "title": "Default Link Distance",
+      "description": "D3 force-link distance.",
+      "default": "60"
+    },
+    {
+      "type": "number",
+      "key": "defaultChargeStrength",
+      "title": "Default Charge Strength",
+      "description": "D3 charge force strength (negative for repulsion).",
+      "default": "-200"
+    },
+    {
+      "type": "number",
+      "key": "nodeRadiusMin",
+      "title": "Min Node Radius",
+      "default": "4"
+    },
+    {
+      "type": "number",
+      "key": "nodeRadiusMax",
+      "title": "Max Node Radius",
+      "default": "20"
+    },
+    {
+      "type": "number",
+      "key": "labelZoomThreshold",
+      "title": "Label Zoom Threshold",
+      "description": "Show node labels only when zoom level >= this value. Set to 0 to always show; the default of 1.0 shows labels at default zoom and hides them when you zoom far out.",
+      "default": "1.0"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "ryan.graph-view",
+  "version": "0.2.0",
+  "private": true,
+  "description": "NotePlan plugin: Obsidian-style graph view with note-backed saved views.",
+  "author": "Ryan Malone",
+  "scripts": {
+    "build": "rollup -c",
+    "autowatch": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.12.0",
+    "rollup-plugin-copy": "^3.5.0"
+  }
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-05-09
+
+### Export outline: pick destination folder
+- Clicking **Export outline** now opens a folder picker so you can choose where the outline note lands. Previously the destination was fixed to the configured `outlineExportFolder` setting.
+- The configured `outlineExportFolder` is pinned to the top of the picker as the preferred default — same one-click flow when you don't want to change it.
+- Cancelling the picker aborts the export silently.
+- Setting renamed to **Outline Export Folder (default)** to reflect its new role.
+
 ## 0.2.0 — 2026-05-02
 
 ### Export outline

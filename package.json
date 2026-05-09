@@ -1,6 +1,6 @@
 {
   "name": "ryan.graph-view",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "NotePlan plugin: Obsidian-style graph view with note-backed saved views.",
   "author": "Ryan Malone",

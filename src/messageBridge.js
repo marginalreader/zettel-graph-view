@@ -1,5 +1,5 @@
 /* eslint-env noteplan */
-/* global HTMLView, Editor, DataStore */
+/* global HTMLView, Editor, DataStore, CommandBar */
 
 import { buildGraph } from './buildGraph.js'
 import {
@@ -84,7 +84,34 @@ async function handleExportOutline(paramsStr) {
   neighbors.sort((a, b) => a.title.localeCompare(b.title))
 
   const settings = getSettings()
-  const folder = (settings.outlineExportFolder || '09 - QUICK ACCESS').trim()
+  const preferredFolder = (settings.outlineExportFolder || '').trim()
+
+  const allFolders = (DataStore.folders || []).filter(f => {
+    if (!f) return false
+    if (f === '/' || f === '@Trash') return false
+    if (f.startsWith('@Trash/')) return false
+    return true
+  })
+  if (allFolders.length === 0) {
+    await pushToPanel('error', { message: 'No folders available to export into.' })
+    return
+  }
+  const sortedFolders = preferredFolder && allFolders.includes(preferredFolder)
+    ? [preferredFolder, ...allFolders.filter(f => f !== preferredFolder)]
+    : allFolders.slice()
+
+  let pickerResult
+  try {
+    pickerResult = await CommandBar.showOptions(sortedFolders, `Export outline of "${anchorTitle}" to folder…`)
+  } catch (e) {
+    console.log('handleExportOutline: folder picker failed: ' + e.message)
+    return
+  }
+  if (!pickerResult || typeof pickerResult.index !== 'number' || pickerResult.index < 0) {
+    console.log('handleExportOutline: folder pick cancelled')
+    return
+  }
+  const folder = sortedFolders[pickerResult.index]
   const safeAnchor = anchorTitle.replace(/[\/\\:*?"<>|]/g, '_').slice(0, 60)
 
   const lines = []

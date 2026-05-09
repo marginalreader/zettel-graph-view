@@ -6,7 +6,7 @@
   "plugin.name": "🕸️ Graph View",
   "plugin.description": "Obsidian-style graph view of your NotePlan vault, with note-backed saved views you can favorite in the sidebar.",
   "plugin.author": "Ryan Malone",
-  "plugin.version": "0.2.0",
+  "plugin.version": "0.3.0",
   "plugin.script": "script.js",
   "plugin.url": "",
   "plugin.requiredFiles": ["d3.min.js", "webview-bundle.js", "webview-styles.css"],
@@ -74,8 +74,8 @@
     {
       "type": "string",
       "key": "outlineExportFolder",
-      "title": "Outline Export Folder",
-      "description": "Folder where 'Export outline' creates new notes from the locked anchor and its 1-hop neighbors.",
+      "title": "Outline Export Folder (default)",
+      "description": "Preferred folder for 'Export outline'. Pinned to the top of the folder picker as the default; you can still pick any other folder each time.",
       "default": "09 - QUICK ACCESS"
     },
 {

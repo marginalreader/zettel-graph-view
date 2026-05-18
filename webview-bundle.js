@@ -819,7 +819,7 @@
       defaultChargeStrength: -200,
       nodeRadiusMin: 4,
       nodeRadiusMax: 20,
-      labelZoomThreshold: 1.5
+      labelZoomThreshold: 1.0
     },
     simulation: null,
     expandedFolders: new Set()

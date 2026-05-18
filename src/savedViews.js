@@ -5,8 +5,6 @@ import { buildGraph } from './buildGraph.js'
 import { pushToPanel } from './messageBridge.js'
 import { getDefaultViewFilename, getSavedViewsFolder, setDefaultViewFilename } from './settings.js'
 
-const PREF_LAST_VIEW = 'graphView_lastViewFilename'
-
 export function listSavedViews() {
   const folder = getSavedViewsFolder()
   const defaultFn = getDefaultViewFilename()
@@ -213,7 +211,6 @@ export async function handleLoadView(paramsStr) {
   console.log('handleLoadView: ' + filename + ' filters=' + JSON.stringify(view.filters) + ' focus=' + JSON.stringify(view.focus))
   const graph = buildGraph(view.filters)
   console.log('handleLoadView: built graph nodes=' + graph.nodes.length + ' edges=' + graph.edges.length)
-  try { DataStore.setPreference(PREF_LAST_VIEW, filename) } catch (e) { /* ignore */ }
   await pushToPanel('viewLoaded', {
     filename,
     filters: view.filters,

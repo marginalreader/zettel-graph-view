@@ -9,7 +9,7 @@ export function getSettings() {
 
 export function getSavedViewsFolder() {
   const s = getSettings()
-  return (s.savedViewsFolder || '@Plugins/Zettel Graph/Views').trim()
+  return (s.savedViewsFolder || '@Plugins/Zettel Graph View/Views').trim()
 }
 
 export function getDefaultViewFilename() {

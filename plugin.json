@@ -83,33 +83,33 @@
       "key": "defaultLinkDistance",
       "title": "Default Link Distance",
       "description": "D3 force-link distance.",
-      "default": "60"
+      "default": 60
     },
     {
       "type": "number",
       "key": "defaultChargeStrength",
       "title": "Default Charge Strength",
       "description": "D3 charge force strength (negative for repulsion).",
-      "default": "-200"
+      "default": -200
     },
     {
       "type": "number",
       "key": "nodeRadiusMin",
       "title": "Min Node Radius",
-      "default": "4"
+      "default": 4
     },
     {
       "type": "number",
       "key": "nodeRadiusMax",
       "title": "Max Node Radius",
-      "default": "20"
+      "default": 20
     },
     {
       "type": "number",
       "key": "labelZoomThreshold",
       "title": "Label Zoom Threshold",
       "description": "Show node labels only when zoom level >= this value. Set to 0 to always show; the default of 1.0 shows labels at default zoom and hides them when you zoom far out.",
-      "default": "1.0"
+      "default": 1.0
     }
   ]
 }

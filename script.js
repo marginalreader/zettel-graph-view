@@ -57,7 +57,7 @@ function getSettings() {
 }
 function getSavedViewsFolder() {
   const s = getSettings();
-  return (s.savedViewsFolder || '@Plugins/Zettel Graph/Views').trim();
+  return (s.savedViewsFolder || '@Plugins/Zettel Graph View/Views').trim();
 }
 function getDefaultViewFilename() {
   try {
@@ -215,7 +215,6 @@ function collectFolderTree(nodes) {
   return toArray(root);
 }
 
-const PREF_LAST_VIEW = 'graphView_lastViewFilename';
 function listSavedViews() {
   const folder = getSavedViewsFolder();
   const defaultFn = getDefaultViewFilename();
@@ -422,9 +421,6 @@ async function handleLoadView(paramsStr) {
   console.log('handleLoadView: ' + filename + ' filters=' + JSON.stringify(view.filters) + ' focus=' + JSON.stringify(view.focus));
   const graph = buildGraph(view.filters);
   console.log('handleLoadView: built graph nodes=' + graph.nodes.length + ' edges=' + graph.edges.length);
-  try {
-    DataStore.setPreference(PREF_LAST_VIEW, filename);
-  } catch (e) {/* ignore */}
   await pushToPanel('viewLoaded', {
     filename,
     filters: view.filters,

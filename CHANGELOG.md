@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1 — 2026-05-17
+
+- Release notes corrected to reflect shipped behavior:
+  - Click model documented as click-to-focus + double-click-to-open
+  - Folder Roots mode documented
+  - Export Outline documented
+  - Saved views correctly described as capturing anchor, not just filters
+  - Orphan mode documented as tri-select, not binary toggle
+  - Removed phantom `defaultColorBy` setting and unimplemented `>date` edge row
+  - Settings table updated: added `outlineExportFolder` and `labelZoomThreshold`, corrected `excludedFolders` default
+
 ## 1.0.0 — 2026-05-17
 
 - Renamed plugin to Zettel Graph View

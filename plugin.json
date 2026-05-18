@@ -6,7 +6,7 @@
   "plugin.name": "Zettel Graph View",
   "plugin.description": "Obsidian-style graph view of your NotePlan vault, with note-backed saved views you can favorite in the sidebar.",
   "plugin.author": "Marginal Reader",
-  "plugin.version": "1.0.0",
+  "plugin.version": "1.0.1",
   "plugin.script": "script.js",
   "plugin.url": "",
   "plugin.requiredFiles": ["d3.min.js", "webview-bundle.js", "webview-styles.css"],

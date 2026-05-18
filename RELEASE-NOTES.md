@@ -22,20 +22,32 @@ Zettel Graph View is a NotePlan plugin that brings an Obsidian-style graph view 
 - **Degree-based node sizing** — heavily-linked notes appear larger so hub notes are visible at a glance.
 - **Color by folder** — each top-level folder gets a distinct color, making cluster structure immediately legible.
 - **Hover highlight** — hovering a node dims the rest of the graph and highlights the node plus its direct neighbors.
-- **Click to open** — single-click any node to open that note in the NotePlan editor.
+- **Click to focus** — single-click any node to lock focus on it. The camera pans and zooms to center the node, 1-hop neighbors stay highlighted, and the rest of the graph dims. Click the locked node or the background to release the lock.
+- **Double-click to open** — double-click any node to open that note in the NotePlan editor.
 - **Drag** — reposition any node by dragging. The simulation re-settles around your changes.
 - **Zoom & pan** — mouse wheel + background drag on desktop, pinch + two-finger pan on iOS.
 
 ### Saved Views
-- **Save current view** — capture the current filters and appearance, give it a name. Each saved view is stored as its own note in the configured saved-views folder, so views sync across devices via iCloud and can be favorited in NotePlan's sidebar.
+- **Save current view** — capture the current filters, appearance, and locked-node anchor, then give it a name. Each saved view is stored as its own note in the configured saved-views folder, so views sync across devices via iCloud and can be favorited in NotePlan's sidebar. Loading a view re-applies its filters and re-focuses on the saved anchor.
 - **View picker** — switch between saved views with a single click in the top bar dropdown.
 - **Default view** — mark one view to load automatically when the panel opens.
 - **Manage views** — rename or delete any saved view from a small modal.
 
 ### Filter Bar
 - **Folder filter** — multi-select tree of folders to include or exclude from the graph.
-- **Hide orphans** — toggle to remove nodes with no connections.
+- **Orphan mode** — three-way switch: Show all, Hide orphans, or Only orphans. "Only orphans" is useful for finding notes that need linking.
 - **Live filtering** — graph re-renders as you adjust. No "apply" button.
+
+### Folder Roots Mode
+- **Toggle in the filter panel** — collapses each top-level folder into a single hub node labeled with the folder name and note count.
+- **Aggregated edges** — wikilinks between notes in different folders become weighted hub-to-hub edges, so the inter-folder structure of your vault is visible at a glance.
+- **Click a hub to expand** — the folder's child notes appear alongside the hub, connected by spoke edges. Click again to collapse.
+- **Double-click a hub** — opens the most-recently-changed note in that folder.
+
+### Export Outline
+- **Locked-node export** — with a node locked (single-click), click the Export Outline button in the top bar to generate a new note containing the anchor and all its 1-hop neighbors as `[[wikilink]]` bullets.
+- **Folder picker** — choose where the new outline note lives. The configured default folder is pinned to the top of the picker.
+- **Opens in split view** — the new outline note opens beside your existing note for immediate editing.
 
 ### Design
 - Docked inside NotePlan's main window — no floating windows
@@ -51,7 +63,6 @@ Zettel Graph View is a NotePlan plugin that brings an Obsidian-style graph view 
 | Source | How it works |
 |---|---|
 | `[[wikilinks]]` | Read from `note.linkedItems` — every wikilink between two notes creates an edge |
-| `>date` references | Optional — creates note → calendar-note edges from scheduled tasks (off by default; toggle in settings) |
 
 ---
 
@@ -60,19 +71,19 @@ Zettel Graph View is a NotePlan plugin that brings an Obsidian-style graph view 
 | Setting | Default | Description |
 |---|---|---|
 | `includeCalendarNotes` | `false` | Include daily/weekly/etc. notes as nodes in the graph |
-| `excludedFolders` | `["@Templates", "@Archive", "@Trash"]` | Folders never scanned |
+| `excludedFolders` | `["@Templates", "@Archive", "@Trash", "@Plugins"]` | Folders never scanned |
 | `savedViewsFolder` | `@Plugins/Zettel Graph View/Views` | Folder where saved-view notes are stored |
-| `defaultColorBy` | `folder` | Initial color rule for new views |
+| `outlineExportFolder` | `09 - QUICK ACCESS` | Folder pinned to the top of the picker when exporting an outline |
 | `defaultLinkDistance` | `60` | D3 force link distance |
 | `defaultChargeStrength` | `-200` | D3 charge force strength |
 | `nodeRadiusMin` | `4` | Smallest node radius |
 | `nodeRadiusMax` | `20` | Largest node radius |
+| `labelZoomThreshold` | `1.0` | Zoom level below which node labels are hidden to reduce clutter |
 
 ---
 
 ## Known Limitations
 
-- **Node positions don't persist with saved views yet** — manually-dragged positions reset to the force simulation's layout on reload. Position persistence is planned for the next version.
 - **No focus mode yet** — can't restrict the graph to a single note's n-hop neighborhood. Planned for a future version.
 - **Co-tag and co-mention edges not supported** — only `[[wikilinks]]` count as connections in this version.
 - **SVG renderer only** — vaults with more than ~2,000 nodes may see slowdown. A canvas renderer is planned for larger vaults.

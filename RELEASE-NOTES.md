@@ -27,7 +27,7 @@ Zettel Graph View is a NotePlan plugin that brings an Obsidian-style graph view 
 - **Zoom & pan** — mouse wheel + background drag on desktop, pinch + two-finger pan on iOS.
 
 ### Saved Views
-- **Save current view** — capture the current filters and appearance, give it a name. Stored as JSON in plugin settings.
+- **Save current view** — capture the current filters and appearance, give it a name. Each saved view is stored as its own note in the configured saved-views folder, so views sync across devices via iCloud and can be favorited in NotePlan's sidebar.
 - **View picker** — switch between saved views with a single click in the top bar dropdown.
 - **Default view** — mark one view to load automatically when the panel opens.
 - **Manage views** — rename or delete any saved view from a small modal.
@@ -85,8 +85,8 @@ Zettel Graph View is a NotePlan plugin that brings an Obsidian-style graph view 
 | Command | Alias | Description |
 |---|---|---|
 | `/zettel graph view` | `graph`, `gv`, `zgv` | Open the graph panel |
+| `/zettel graph view: load view` | `load view` | Load a saved view by filename (typically invoked by the callback URL in a saved-view note) |
 | `/zettel graph view: save view` | `save view` | Save the current filters and appearance as a named view |
-| `/zettel graph view: load view` | `load view` | Open the saved-view picker |
 | `/zettel graph view: refresh` | `regraph` | Force a full rescan of the vault and redraw the graph |
 
 ---

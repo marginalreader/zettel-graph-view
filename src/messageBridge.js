@@ -12,7 +12,7 @@ import {
 } from './savedViews.js'
 import { getSettings } from './settings.js'
 
-const PANEL_WINDOW_ID = 'graph-view'
+const PANEL_WINDOW_ID = 'zettel-graph-view'
 
 export async function pushToPanel(type, data) {
   const payload = Object.assign({ type }, data)

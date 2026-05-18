@@ -161,13 +161,13 @@ export function buildSavedViewMarkdown(name, filters, appearance, focus, viewFil
     createdAt: new Date().toISOString(),
   }
   const yaml = toYaml(fm)
-  const cmd = encodeURIComponent('graph view: load view')
+  const cmd = encodeURIComponent('zettel graph view: load view')
   const arg = encodeURIComponent(viewFilename)
-  const callback = `noteplan://x-callback-url/runPlugin?pluginID=graph-view&command=${cmd}&arg0=${arg}`
+  const callback = `noteplan://x-callback-url/runPlugin?pluginID=marginalreader.ZettelGraphView&command=${cmd}&arg0=${arg}`
   return (
     `---\n${yaml}\n---\n\n` +
     `# ${name}\n\n` +
-    `Saved view for the Graph View plugin.\n\n` +
+    `Saved view for the Zettel Graph View plugin.\n\n` +
     '```json\n' +
     cfgJson +
     '\n```\n\n' +

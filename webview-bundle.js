@@ -829,7 +829,7 @@
       functionName,
       params: params || {}
     }));
-    const code = '(async function() { try {' + 'await DataStore.invokePluginCommandByName("graphHTMLMessage", "graph-view", [' + argsJson + ']);' + '} catch(e) { console.log("IIFE error: " + e.message); } })()';
+    const code = '(async function() { try {' + 'await DataStore.invokePluginCommandByName("graphHTMLMessage", "marginalreader.ZettelGraphView", [' + argsJson + ']);' + '} catch(e) { console.log("IIFE error: " + e.message); } })()';
     // eslint-disable-next-line no-undef
     window.webkit.messageHandlers.jsBridge.postMessage({
       code,

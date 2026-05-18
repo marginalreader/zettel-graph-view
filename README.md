@@ -1,4 +1,4 @@
-# Graph View
+# Zettel Graph View
 
 Obsidian-style force-directed graph view of your NotePlan vault, with note-backed saved views and a click-to-anchor focus mode.
 
@@ -27,7 +27,7 @@ Obsidian-style force-directed graph view of your NotePlan vault, with note-backe
 
 ## Install (development)
 
-This plugin is installed in-place at `~/Library/Containers/co.noteplan.NotePlan3/Data/Library/Application Support/co.noteplan.NotePlan3/Plugins/graph-view/`.
+This plugin is installed in-place at `~/Library/Containers/co.noteplan.NotePlan3/Data/Library/Application Support/co.noteplan.NotePlan3/Plugins/marginalreader.ZettelGraphView/`.
 
 ```sh
 npm install
@@ -53,10 +53,10 @@ The built artifacts (`script.js`, `webview-bundle.js`, `webview-styles.css`) liv
 
 | Command | Alias | Description |
 |---|---|---|
-| `/graph view` | `graph`, `gv` | Open the graph panel |
-| `/graph view: save view` | `save view` | Save the current view as a note |
-| `/graph view: load view` | `load view` | Load a saved view (used by callback links) |
-| `/graph view: refresh` | `regraph` | Force a full rescan and redraw |
+| `/zettel graph view` | `graph`, `gv`, `zgv` | Open the graph panel |
+| `/zettel graph view: save view` | `save view` | Save the current view as a note |
+| `/zettel graph view: load view` | `load view` | Load a saved view (used by callback links) |
+| `/zettel graph view: refresh` | `regraph` | Force a full rescan and redraw |
 
 ## Settings
 
@@ -84,7 +84,7 @@ To set a default view (loaded automatically when the panel opens, including afte
 ## Architecture
 
 ```
-graph-view/
+marginalreader.ZettelGraphView/
 ├── plugin.json           (manifest, sidebar pin, settings)
 ├── d3.min.js             (D3 v7 UMD, declared in plugin.requiredFiles)
 ├── script.js             (built: Node-side bundle)

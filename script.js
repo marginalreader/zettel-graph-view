@@ -366,10 +366,10 @@ function buildSavedViewMarkdown(name, filters, appearance, focus, viewFilename) 
     createdAt: new Date().toISOString()
   };
   const yaml = toYaml(fm);
-  const cmd = encodeURIComponent('graph view: load view');
+  const cmd = encodeURIComponent('zettel graph view: load view');
   const arg = encodeURIComponent(viewFilename);
-  const callback = `noteplan://x-callback-url/runPlugin?pluginID=graph-view&command=${cmd}&arg0=${arg}`;
-  return `---\n${yaml}\n---\n\n` + `# ${name}\n\n` + `Saved view for the Graph View plugin.\n\n` + '```json\n' + cfgJson + '\n```\n\n' + `[Load this view](${callback})\n`;
+  const callback = `noteplan://x-callback-url/runPlugin?pluginID=marginalreader.ZettelGraphView&command=${cmd}&arg0=${arg}`;
+  return `---\n${yaml}\n---\n\n` + `# ${name}\n\n` + `Saved view for the Zettel Graph View plugin.\n\n` + '```json\n' + cfgJson + '\n```\n\n' + `[Load this view](${callback})\n`;
 }
 async function handleSaveView(paramsStr) {
   const _JSON$parse = JSON.parse(paramsStr),
@@ -512,7 +512,7 @@ async function handleApplyDefault() {
 /* eslint-env noteplan */
 /* global HTMLView, Editor, DataStore, CommandBar */
 
-const PANEL_WINDOW_ID$1 = 'graph-view';
+const PANEL_WINDOW_ID$1 = 'zettel-graph-view';
 async function pushToPanel(type, data) {
   const payload = Object.assign({
     type
@@ -678,7 +678,7 @@ function buildHtml(initialData) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Graph View</title>
+  <title>Zettel Graph View</title>
   <link rel="stylesheet" href="./webview-styles.css">
   <script src="./d3.min.js"></script>
   <script>window.INITIAL_DATA = ${json};</script>
@@ -757,7 +757,7 @@ function buildHtml(initialData) {
 /* eslint-env noteplan */
 /* global HTMLView */
 
-const PANEL_WINDOW_ID = 'graph-view';
+const PANEL_WINDOW_ID = 'zettel-graph-view';
 async function buildAndShowPanel(opts) {
   const o = opts || {};
   const settings = getSettings();
@@ -799,7 +799,7 @@ async function buildAndShowPanel(opts) {
     }
   };
   const html = buildHtml(initialData);
-  HTMLView.showInMainWindow(html, 'Graph View', {
+  HTMLView.showInMainWindow(html, 'Zettel Graph View', {
     id: PANEL_WINDOW_ID,
     splitView: false,
     icon: 'diagram-project',
@@ -852,7 +852,7 @@ async function onSettingsUpdated() {
   }
 }
 function onUpdateOrInstall() {
-  console.log('graph-view installed/updated');
+  console.log('marginalreader.ZettelGraphView installed/updated');
 }
 
 exports.graphHTMLMessage = graphHTMLMessage;

@@ -7,7 +7,7 @@ import { listSavedViews, readSavedViewNote } from './savedViews.js'
 import { getDefaultViewFilename, getSettings } from './settings.js'
 import { buildHtml } from './webview/template.js'
 
-const PANEL_WINDOW_ID = 'graph-view'
+const PANEL_WINDOW_ID = 'zettel-graph-view'
 
 async function buildAndShowPanel(opts) {
   const o = opts || {}
@@ -54,7 +54,7 @@ async function buildAndShowPanel(opts) {
   }
 
   const html = buildHtml(initialData)
-  HTMLView.showInMainWindow(html, 'Graph View', {
+  HTMLView.showInMainWindow(html, 'Zettel Graph View', {
     id: PANEL_WINDOW_ID,
     splitView: false,
     icon: 'diagram-project',
@@ -110,5 +110,5 @@ export async function onSettingsUpdated() {
 }
 
 export function onUpdateOrInstall() {
-  console.log('graph-view installed/updated')
+  console.log('marginalreader.ZettelGraphView installed/updated')
 }

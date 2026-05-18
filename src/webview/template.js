@@ -5,7 +5,7 @@ export function buildHtml(initialData) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Graph View</title>
+  <title>Zettel Graph View</title>
   <link rel="stylesheet" href="./webview-styles.css">
   <script src="./d3.min.js"></script>
   <script>window.INITIAL_DATA = ${json};</script>

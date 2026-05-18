@@ -2,42 +2,42 @@
   "noteplan.minAppVersion": "3.20.1",
   "macOS.minVersion": "10.15.7",
   "iOS.minVersion": "14",
-  "plugin.id": "graph-view",
-  "plugin.name": "🕸️ Graph View",
+  "plugin.id": "marginalreader.ZettelGraphView",
+  "plugin.name": "Zettel Graph View",
   "plugin.description": "Obsidian-style graph view of your NotePlan vault, with note-backed saved views you can favorite in the sidebar.",
-  "plugin.author": "Ryan Malone",
+  "plugin.author": "Marginal Reader",
   "plugin.version": "0.3.0",
   "plugin.script": "script.js",
   "plugin.url": "",
   "plugin.requiredFiles": ["d3.min.js", "webview-bundle.js", "webview-styles.css"],
   "plugin.commands": [
     {
-      "name": "graph view",
-      "alias": ["graph", "gv"],
-      "description": "Open the graph view panel",
+      "name": "zettel graph view",
+      "alias": ["graph", "gv", "zgv"],
+      "description": "Open the Zettel Graph View panel",
       "jsFunction": "openGraphView",
       "sidebarView": {
-        "windowID": "graph-view",
-        "title": "Graph View",
+        "windowID": "zettel-graph-view",
+        "title": "Zettel Graph View",
         "icon": "diagram-project",
         "iconColor": "purple-500"
       }
     },
     {
-      "name": "graph view: load view",
+      "name": "zettel graph view: load view",
       "alias": ["load view"],
-      "description": "Load a saved graph view (used by 'Load this view' callback links)",
+      "description": "Load a saved Zettel Graph View (used by 'Load this view' callback links)",
       "jsFunction": "loadSavedView",
       "arguments": ["view filename"]
     },
     {
-      "name": "graph view: save view",
+      "name": "zettel graph view: save view",
       "alias": ["save view"],
-      "description": "Save the current graph view as a note",
+      "description": "Save the current Zettel Graph View as a note",
       "jsFunction": "saveCurrentView"
     },
     {
-      "name": "graph view: refresh",
+      "name": "zettel graph view: refresh",
       "alias": ["regraph"],
       "description": "Force a full rescan and redraw of the graph",
       "jsFunction": "refreshGraph"
@@ -69,7 +69,7 @@
       "key": "savedViewsFolder",
       "title": "Saved Views Folder",
       "description": "Folder where saved-view notes are stored.",
-      "default": "@Plugins/Zettel Graph/Views"
+      "default": "@Plugins/Zettel Graph View/Views"
     },
     {
       "type": "string",

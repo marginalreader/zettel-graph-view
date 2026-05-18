@@ -25,7 +25,7 @@ function sendToPlugin(functionName, params) {
   const argsJson = JSON.stringify(JSON.stringify({ functionName, params: params || {} }))
   const code =
     '(async function() { try {' +
-    'await DataStore.invokePluginCommandByName("graphHTMLMessage", "graph-view", [' +
+    'await DataStore.invokePluginCommandByName("graphHTMLMessage", "marginalreader.ZettelGraphView", [' +
     argsJson +
     ']);' +
     '} catch(e) { console.log("IIFE error: " + e.message); } })()'

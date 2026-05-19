@@ -2,7 +2,7 @@
 
 Obsidian-style force-directed graph view of your NotePlan vault, with note-backed saved views and a click-to-anchor focus mode.
 
-> Current version: v1.0.1 — see [CHANGELOG.md](CHANGELOG.md) for version history.
+> Current version: v1.0.2 — see [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ## Features
 
@@ -60,7 +60,7 @@ The built artifacts (`script.js`, `webview-bundle.js`, `webview-styles.css`) liv
 | Include Calendar Notes | `false` | Show daily/weekly notes as graph nodes |
 | Excluded Folders | `@Templates, @Archive, @Trash, @Plugins` | Folders never scanned (always applied, even on top of saved-view filters) |
 | Saved Views Folder | `@Plugins/Zettel Graph View/Views` | Where saved-view notes live |
-| Outline Export Folder | `09 - QUICK ACCESS` | Where the **Export outline** button creates new notes |
+| Outline Export Folder | `Notes` | Where the **Export outline** button creates new notes |
 | Link Distance | `60` | D3 force-link distance |
 | Charge Strength | `-200` | D3 charge force strength |
 | Node Radius Min/Max | `4` / `20` | Smallest/largest node circle radius |
@@ -113,4 +113,4 @@ Ideas parked for future versions — nothing committed, just what might come nex
 
 ## Reporting issues
 
-Diagnostic logs land in `_MCP-console.log` next to `script.js`. The plugin logs read/write/load actions for saved views and the default-view path so failures are easy to trace.
+Open an issue at https://github.com/marginalreader/zettel-graph-view/issues. The plugin logs saved-view read/write/load actions to NotePlan's plugin console (View → Show Plugin Console) — including those lines in the report helps trace failures.

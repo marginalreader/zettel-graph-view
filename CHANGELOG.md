@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.2 — 2026-05-19
+
+Submission cleanup release. No functional changes.
+
+- Added `LICENSE` (MIT)
+- Filled in `plugin.url` (https://github.com/marginalreader/zettel-graph-view)
+- Changed `outlineExportFolder` default from `09 - QUICK ACCESS` to `Notes` — the previous default was a dev-personal folder that other vaults don't have
+- README: replaced internal `_MCP-console.log` reference with a GitHub-issues link and a pointer to NotePlan's plugin console
+- Release packaging: switched from a single ZIP asset to individual files per NotePlan submission rules. This also scrubs the personal-data leak that affected v1.0.0 and v1.0.1 (those releases have been deleted)
+
 ## 1.0.1 — 2026-05-17
 
 Docs-only / cleanup release. No code-behavior changes since v1.0.0.
